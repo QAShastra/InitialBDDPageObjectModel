@@ -1,21 +1,15 @@
 package pageobjects;
-
-
  import org.openqa.selenium.By;
  import org.openqa.selenium.WebDriver;
  import org.openqa.selenium.support.ui.ExpectedConditions;
  import org.openqa.selenium.support.ui.WebDriverWait;
-
-
 public class LoginPage {
     WebDriver driver;
-
-
-    By usernameField = By.cssSelector("input[name='username']");
+      // Locators
+     By usernameField = By.cssSelector("input[name='username']");
      By passwordField = By.cssSelector("input[type='password']");
      By loginButton = By.cssSelector("button[type='submit']");
-
-     public LoginPage(WebDriver driver) {
+    public LoginPage(WebDriver driver) {
          this.driver = driver;
      }
     public void navigateToLoginPage(){
@@ -25,7 +19,6 @@ public class LoginPage {
          Thread.sleep(5000);
          driver.findElement(usernameField).sendKeys(username);
      }
-
      public void enterPassword(String password) {
          driver.findElement(passwordField).sendKeys(password);
      }
