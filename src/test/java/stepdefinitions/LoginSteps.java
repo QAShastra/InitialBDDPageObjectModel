@@ -22,29 +22,51 @@ public class LoginSteps {
 
     @When("the user enters valid credentials")
     public void the_user_enters_valid_credentials() throws InterruptedException {
+        loginPage.enterUsername("Admin");
+        loginPage.enterPassword("admin123");
+        loginPage.clickLogin();
+    }
+    @When("the user enters invalid credentials")
+    public void the_user_enters_in_valid_credentials() throws InterruptedException {
         loginPage.enterUsername("validUser");
-        loginPage.enterPassword("validPassword");
+        loginPage.enterPassword("validPassword1212121212121212121");
         loginPage.clickLogin();
     }
 
     @Then("the user should be redirected to the home page")
     public void the_user_should_be_redirected_to_the_home_page() {
-
+             loginPage.verifyHomePage();
      }
-
-    @When("the user enters invalid credentials")
-    public void theUserEntersInvalidCredentials() throws InterruptedException {
-
-        loginPage.enterUsername("validUser");
-        loginPage.enterPassword("validPassword123");
-        loginPage.clickLogin();
-    }
 
     @Then("the user should see an error message")
     public void theUserShouldSeeAnErrorMessage() {
         loginPage.verifyErrorMessage();
-        loginPage.logout();
+
     }
 
+
+    @When("the user enters {string} in the username field")
+    public void the_user_enters_in_the_username_field(String string) {
+        loginPage.enterUsername(string);
+    }
+    @When("the user enters {string} in the passwrod field")
+    public void the_user_enters_in_the_passwrod_field(String string) {
+        loginPage.enterPassword(string);
+
+    }
+    @When("the user clicks button")
+    public void the_user_clicks_button() {
+        loginPage.click();
+
+    }
+
+    @Then("the user should be redirected to the {string} page")
+    public void theUserShouldBeRedirectedToThe(String string) {
+        if(string.equals("dashboardpage")){
+            loginPage.verifyHomePage();
+        }else if(string.equals("errorpage")){
+            loginPage.verifyErrorMessage();
+        }
+    }
 
 }
