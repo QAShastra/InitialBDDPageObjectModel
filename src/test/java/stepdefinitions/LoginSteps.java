@@ -49,8 +49,8 @@ public class LoginSteps {
     public void the_user_enters_in_the_username_field(String string) {
         loginPage.enterUsername(string);
     }
-    @When("the user enters {string} in the passwrod field")
-    public void the_user_enters_in_the_passwrod_field(String string) {
+    @When("the user enters {string} in the password field")
+    public void the_user_enters_in_the_password_field(String string) {
         loginPage.enterPassword(string);
 
     }
