@@ -17,24 +17,19 @@ public class DriverManager {
     public static ThreadLocal<WebDriver> mydriver = new ThreadLocal<>();
     public  WebDriver launchBrowser(String browser) throws MalformedURLException {
         if (browser.equals("Chrome")) {
-         ///   System.setProperty("webdriver.chrome.driver", "C:\\QAShastra\\MyTrainings\\Selenium\\Selenium Grid\\drivers\\chromedriver.exe");
-            DesiredCapabilities capabilities = new DesiredCapabilities();
+             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setBrowserName("chrome");
 
             mydriver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities));
 
 
-            //mydriver.set(new ChromeDriver());
-        } else if (browser.equals("Firefox")) {
-            //firefox capabilities
-            DesiredCapabilities capabilities = new DesiredCapabilities();
+         } else if (browser.equals("Firefox")) {
+             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setBrowserName("firefox");
-            //capabilities.setCapability("moz:firefoxOptions", new FirefoxOptions().setBinary("C:\\QAShastra\\MyTrainings\\Selenium\\Selenium Grid\\drivers\\geckodriver.exe"));
 
             mydriver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities));
 
-            // mydriver.set(new FirefoxDriver());
-        }
+         }
 
          getDriver().manage().deleteAllCookies();
         getDriver().manage().window().maximize();
