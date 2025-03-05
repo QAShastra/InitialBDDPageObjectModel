@@ -44,7 +44,7 @@ public class LoginSteps {
     @Then("the user should see an error message")
     public void theUserShouldSeeAnErrorMessage() {
         loginPage.verifyErrorMessage();
-        assertEquals(true, false);
+
 
 
     }
