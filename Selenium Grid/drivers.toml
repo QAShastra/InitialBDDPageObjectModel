@@ -1,0 +1,17 @@
+[server]
+port = 5555
+
+[node]
+detect-drivers = false
+
+[[node.driver-configuration]]
+display-name = "Chrome"
+webdriver-executable = "C:\\QAShastra\\MyTrainings\\Selenium\\Selenium Grid\\drivers\\chromedriver.exe"
+max-sessions = 7
+stereotype = '{"browserName": "chrome", "browserVersion": "latest"}'
+
+[[node.driver-configuration]]
+display-name = "Firefox"
+webdriver-executable = "C:\\QAShastra\\MyTrainings\\Selenium\\Selenium Grid\\drivers\\geckodriver.exe"
+max-sessions = 6
+stereotype = '{"browserName": "firefox", "browserVersion": "latest"}'
